@@ -1,4 +1,6 @@
-import {countries} from "./country.js";
+import {countries} from "./countries.js";
 
-const gridContainer = document.getElementById("grid-country-container");
-gridContainer.className = "grid-country-container";
+console.log(countries);
+
+// const gridContainer = document.getElementById("grid-country-container");
+// gridContainer.className = "grid-country-container";

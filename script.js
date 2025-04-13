@@ -1,10 +1,13 @@
-const gridContainer = document.getElementById("grid-country-container");
+import {countries} from "./countries.js";
+
+console.log(countries);
+
+const gridContainer = document.querySelector(".grid-country-container");
 gridContainer.className = "grid-country-container";
 
 const searchInput = document.getElementById("search")
 
 let displayedCountries = countries;
-
 
 function getCountryData(countryList){
 
@@ -12,10 +15,12 @@ function getCountryData(countryList){
   
   for(let i = 0; i < countryList.length; i++){
 
-
     let countryContainer = document.createElement("div");
-    countryContainer.className = "country";
     gridContainer.appendChild(countryContainer);
+    countryContainer.className = "country";
+    
+    let flagImage = document.createElement("div");
+    flagImage.className = "flag";
     countryContainer.appendChild(flagImage);
 
     let image = document.createElement("img");
@@ -28,3 +33,26 @@ function getCountryData(countryList){
     countryContainer.appendChild(countryName);
 };
 }
+
+const searchCountry = (country) => {
+
+  let countryList = [];
+
+  for(let i = 0; i < countries.length; i++){
+
+      if(countries[i].name.toLowerCase().includes(country.toLowerCase())){
+          countryList.push(countries[i]);   
+      };
+};
+
+getCountryData(countryList);
+return countryList;
+};
+
+searchInput.addEventListener("input", () => {
+searchCountry(searchInput.value)
+});
+
+window.addEventListener("load", () => {
+getCountryData(displayedCountries);
+});

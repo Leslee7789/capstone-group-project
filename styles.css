@@ -9,6 +9,25 @@
   --primary-font-color: #D5A85C;
   font-size: 16px;
 }
+.heading{
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--secondary-bg-color);
+  position: fixed;
+  top: 0;
+}
+
+#search{
+  padding: 0.8rem 1rem;
+  width: min(100%, 300px);
+  border-radius: 1rem;
+  border: 1px solid var(--primary-bg-color);
+}
+
 
 body{
   display: flex;

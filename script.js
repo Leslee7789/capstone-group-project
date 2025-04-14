@@ -1,46 +1,30 @@
-import {countries} from "./countries.js";
+const gridContainer = document.getElementById("grid-country-container");
+gridContainer.className = "grid-country-container";
 
- const gridContainer = document.querySelector(".grid-country-container");
- gridContainer.className = "grid-country-container";
+const searchInput = document.getElementById("search")
 
- let countryContainer = document.createElement("div");
- countryContainer.className = "country";
- gridContainer.appendChild(countryContainer);
+let displayedCountries = countries;
 
- let flagImage = document.createElement("div");
- flagImage.className = "flag";
- countryContainer.appendChild(flagImage);
 
- let image = document.createElement("img");
- image.src = countries[0].flag;
- flagImage.appendChild(image);
+function getCountryData(countryList){
 
- let countryName = document.createElement("p");
-countryName.className = "country-name";
+  gridContainer.innerHTML = "";
+  
+  for(let i = 0; i < countryList.length; i++){
 
-countryName.textContent = countries[0].name;
-countryContainer.appendChild(countryName);
 
-function getCountryData(){
+    let countryContainer = document.createElement("div");
+    countryContainer.className = "country";
+    gridContainer.appendChild(countryContainer);
+    countryContainer.appendChild(flagImage);
 
-  for(let i = 1; i < countries.length; i++){
-      let countryContainer = document.createElement("div");
-      gridContainer.appendChild(countryContainer);
-      countryContainer.className = "country";
-      
-      
-      let flagImage = document.createElement("div");
-      flagImage.className = "flag";
-      countryContainer.appendChild(flagImage);
-      
-      let image = document.createElement("img");
-      image.src = countries[i].flag;
-      flagImage.appendChild(image);
-      
-      let countryName = document.createElement("p");
-      countryName.className = "country-name";
-      countryName.textContent = countries[i].name;
-      countryContainer.appendChild(countryName);
-  };
-  }
-  getCountryData();
+    let image = document.createElement("img");
+    image.src = countryList[i].flag;
+    flagImage.appendChild(image);
+
+    let countryName = document.createElement("p");
+    countryName.className = "country-name";
+    countryName.textContent = countryList[i].name;
+    countryContainer.appendChild(countryName);
+};
+}
